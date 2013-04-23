@@ -19,7 +19,7 @@ int main(int argc, char* argv[]) {
             cout << line << endl;
 	    		newLine = buildCommand(line);
 	    		cout << newLine << endl;
-	    		//executeCommand(newLine);
+	    		executeCommand(newLine);
 		}
 		cmdFile.close();
     	}
