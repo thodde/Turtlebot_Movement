@@ -1,0 +1,15 @@
+forward
+forward
+left
+forward
+forward
+left
+left
+forward
+right
+forward
+forward
+forward
+right
+forward
+quit
