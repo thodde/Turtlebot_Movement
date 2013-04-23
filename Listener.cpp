@@ -14,17 +14,17 @@ int main(int argc, char* argv[]) {
     string newLine;
 
     if(cmdFile.is_open()) {
-	while(cmdFile.good()) {
+		while(cmdFile.good()) {
             getline(cmdFile, line);
             cout << line << endl;
-	    newLine = buildCommand(line);
-	    cout << newLine << endl;
-	    executeCommand(newLine);
-	}
-	cmdFile.close();
-    }
+	    		newLine = buildCommand(line);
+	    		cout << newLine << endl;
+	    		//executeCommand(newLine);
+		}
+		cmdFile.close();
+    	}
     else {
-	cout << "Cannot open command file.\n";
+		cout << "Cannot open command file.\n";
     }
 
     return 0;
@@ -33,26 +33,26 @@ int main(int argc, char* argv[]) {
 string buildCommand(string line) {
     string command;
 
-    while(line == "quit") {
-        if(line == "forward") {
-            cout << "moving forward..." << endl;
-	    command = "rostopic pub /turtle1/command_velocity turtlesim/Velocity -- 2.0 0.0";
-        }
-        else if(line == "left") {
-            cout << "moving left..." << endl;
-	    command = "rostopic pub /turtle1/command_velocity turtlesim/Velocity -- 0.0 1.0";
-        }
-        else if(line == "right") {
-            cout << "moving right..." << endl;
-	    command = "rostopic pub /turtle1/command_velocity turtlesim/Velocity -- 0.0 -1.0";
-        }
-        else if(line == "quit") {
-            cout << "quitting..." << endl;
-        }
-        else {
-            cout << "Not sure what " << line << " means..." << endl;
-        }
-    }
+	if(line == "forward") {
+		cout << "moving forward..." << endl;
+		command = "rostopic pub /turtle1/command_velocity turtlesim/Velocity -- 2.0 0.0";
+	}
+	else if(line == "left") {
+		cout << "moving left..." << endl;
+		command = "rostopic pub /turtle1/command_velocity turtlesim/Velocity -- 0.0 1.0";
+	}
+	else if(line == "right") {
+		cout << "moving right..." << endl;
+		command = "rostopic pub /turtle1/command_velocity turtlesim/Velocity -- 0.0 -1.0";
+	}
+	else if(line == "quit") {
+		cout << "quitting..." << endl;
+		return "";
+	}
+	else {
+		cout << "Not sure what " << line << " means..." << endl;
+	}
+
     return command;
 }
 
