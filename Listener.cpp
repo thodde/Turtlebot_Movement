@@ -35,15 +35,15 @@ string buildCommand(string line) {
 
 	if(line == "forward") {
 		cout << "moving forward..." << endl;
-		command = "rostopic pub /turtle1/command_velocity turtlesim/Velocity -- 2.0 0.0";
+		command = "rostopic pub -1 /turtle1/command_velocity turtlesim/Velocity -- 2.0 0.0";
 	}
 	else if(line == "left") {
 		cout << "moving left..." << endl;
-		command = "rostopic pub /turtle1/command_velocity turtlesim/Velocity -- 0.0 1.0";
+		command = "rostopic pub -1 /turtle1/command_velocity turtlesim/Velocity -- 0.0 1.0";
 	}
 	else if(line == "right") {
 		cout << "moving right..." << endl;
-		command = "rostopic pub /turtle1/command_velocity turtlesim/Velocity -- 0.0 -1.0";
+		command = "rostopic pub -1 /turtle1/command_velocity turtlesim/Velocity -- 0.0 -1.0";
 	}
 	else if(line == "quit") {
 		cout << "quitting..." << endl;
